@@ -1,0 +1,10 @@
+@import "modules/all";
+
+body {
+	font-family:'Melbourne-Bold';
+	background-color: $main-color;
+	color:$red;
+	font-size: 16px;
+}
+
+p { font-family:'Melbourne-Regular'; }

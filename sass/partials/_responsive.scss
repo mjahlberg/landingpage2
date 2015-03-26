@@ -1,0 +1,127 @@
+@media (max-width: 1200px) {
+
+	
+}
+
+
+@media (max-width: 995px) {
+	.indie-featured {
+		margin-bottom: 40px;
+		&:not(:last-of-type)::after {
+			display: none;
+		}
+		// In case owl-carousel
+		.owl-item:not(:last-of-type) &::after {
+			display: none;
+		}
+	}
+}
+
+
+
+@media (max-width: 767px) {
+	
+}
+
+@media only screen and (max-width : 768px) {
+	
+	// Navigation
+	.mobile-btn { display: block; }
+	.navbar {
+		background-color: $main-color;
+		margin-bottom: 0;
+		max-height: 0;
+		min-height: 0;
+		overflow: hidden;
+		z-index: 90;
+		padding-right: 28px;
+		transition: max-height 250ms linear;
+		&.open {
+			max-height: 700px;
+		}
+	}
+	.navbar-fixed-top { 
+		position: relative; 
+	}
+	.indie-navigation {
+		float: none!important;
+		&.nav-pills > li {
+			float: none;
+			margin-left: 0;
+			margin-top: 2px;
+		}
+	}
+
+	.section.first { margin-top: 50px; }
+	.indie-intro {
+		margin-top: 30px;
+	}
+
+	.indie-header-img {
+		display: none;
+	}
+
+	.separator.contact {
+		width: 90%;
+	} 
+	// todo: control padding of section
+
+	@if($slideResp) {
+		.slide_2--title, .slide_3--title, .slide_3--title-add, 
+		.selected .slide_2--title, .selected .slide_3--title, .selected .slide_3--title-add { 
+			font-size: 40px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.slide_2--title { top: 34%; }
+		.slide_3--title { top: calc(25% + 1em); }
+		.slide_3--title-add { top: 25%; }
+		.slide_2--buy, .slide_3--buy {  
+			font-size: 12px;
+			right: 10px;
+			left:auto;
+			top: auto;
+			bottom:10px;
+		}
+		.slide_2--details, .slide_3--details, .slide_2--play { display: none; }
+		.slide_2--watch { 
+			font-size: 13px;
+			top: auto;
+			bottom: 15px;
+			right: auto;
+			left:0;
+			padding: 0 1em 0 1em;
+		}
+	} // @if
+
+}
+
+
+@media (max-width: 480px) {
+	.indie-title {
+		text-align: center;
+		width: 100%;
+		padding-right: 0;
+		&:after {
+			display: none;
+		}
+	}
+	.indie-controls {
+		position: relative;
+		text-align: center;
+		button {
+			border-left: none;
+			padding-bottom: 0;
+		}
+	}
+	.section {
+		&.first { padding-top: 50px; }
+	}
+	.separator.card {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 94%;
+		overflow: hidden;
+	}
+}
+

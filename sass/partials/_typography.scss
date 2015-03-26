@@ -1,0 +1,38 @@
+@font-face {
+	font-family:'Melbourne-Regular';
+	src: url('../fonts/Melbourne_gdi.eot');
+	src: url('../fonts/Melbourne_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Melbourne_gdi.woff') format('woff'),
+		url('../fonts/Melbourne_gdi.ttf') format('truetype'),
+		url('../fonts/Melbourne_gdi.svg#Melbourne-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
+}
+
+@font-face {
+	font-family:'Melbourne-Bold';
+	src: url('../fonts/Melbourne-Bold_gdi.eot');
+	src: url('../fonts/Melbourne-Bold_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Melbourne-Bold_gdi.woff') format('woff'),
+		url('../fonts/Melbourne-Bold_gdi.ttf') format('truetype'),
+		url('../fonts/Melbourne-Bold_gdi.svg#Melbourne-Bold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
+}
+
+@font-face {
+	font-family:'Melbourne-Light';
+	src: url('../fonts/Melbourne-Light_gdi.eot');
+	src: url('../fonts/Melbourne-Light_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Melbourne-Light_gdi.woff') format('woff'),
+		url('../fonts/Melbourne-Light_gdi.ttf') format('truetype'),
+		url('../fonts/Melbourne-Light_gdi.svg#Melbourne-Light') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2212;
+}

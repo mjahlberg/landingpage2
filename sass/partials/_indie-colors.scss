@@ -1,0 +1,460 @@
+/* 
+**
+**  Sections Stuff
+**
+*/
+
+
+
+.section {
+
+	// Generate section-color for each color in $list
+
+	@include coloring($colors, 'section-', false) { 
+			@if($name-color == "dark"){
+				color:$light-grey;
+			} @else {
+				color:$main-color;		
+			}
+			background-color: $color;
+
+		.widget-featured .indie-content {
+			background-color: $main-color;
+			color:$color;
+		}
+		 
+		.widget-featured .btn-indie, .btn-indie.inverse {
+			background-color: $color;
+			color:$main-color;
+			&:hover { background-color: darken($color, 2); }
+		}
+
+		.btn-indie {
+			@include nth($color-list){
+				background-color: $main-color;
+				color:$color;
+				&:hover { background-color: darken($main-color, 2); }
+			}
+		}
+
+		.indie-header-img, .indie-header-icon {
+			background-color: $color;
+		}
+		
+		.indie-title::after { color:$main-color; }
+		
+		.separator {
+			&.card {
+				color:$color;
+				border:2px solid $color;
+			}	
+		}
+
+		.indie-label {
+			color:$main-color;
+			&.inverse {
+				background-color: $main-color;
+				color:$color;
+			}
+			&.alt-color {
+				border:none;
+				color:$main-color;
+				background-color: alt-color($color);
+			}
+		}
+		
+		.highlighted { 
+			background-color: $main-color;
+			color:$color;
+			&.alt-color { 
+				background-color: alt-color($color);
+			}
+		}
+		
+
+		.indie-combo { border-color:alt-color($color); }
+		.indie-tag { background-color:alt-color($color);	}
+		.indie-combo-img { 
+			background-color: $color;
+			&.img:after {
+				background-color: $color;
+			}
+		}
+
+		.indie-img-cont {
+			h4 { background-color: $color; }
+			&.img:after {
+				background-color: $color;
+			}
+		}
+		.indie-featured-img { background-color: $color; }
+		.indie-featured {
+			&.hoverable:hover { 
+				h4, p { color:$main-color; }
+				.btn-rounded { background-color: $main-color; }
+			}
+		}
+
+		.indie-txt-cont::after, .indie-h::after {	background-color: $main-color; } // Specific for :after with currentColor in Safari
+		
+
+		.btn-rounded {
+			background-color: $main-color;
+			color:$color;
+			&:hover, &:focus { color: darken($color,5); }
+
+		}
+
+		// Syntax Highlighter
+		:not(pre) > code[class*="language-"], pre[class*="language-"] { color: $color; }
+
+	} // @include
+	
+
+} // .section
+
+
+
+
+
+
+
+/*
+**
+**  Indie Colors
+**
+*/
+
+// $colors is a list declared in modules/_variables.scss
+
+
+@each $color in $colors {
+
+	.indie-#{nth($color,1)} {
+
+		.section & .widget-featured {
+			.indie-content {
+				background-color: #{nth($color,2)};
+			}
+			.btn-indie {
+				background-color: $main-color;
+				color:#{nth($color,2)};
+			}
+		}
+		
+		// if modify the section element
+		&.section {
+			.widget-featured {
+				.indie-content {
+					@if(nth($color,1) == "dark"){
+						background-color: $light-grey;
+					} @else {
+						background-color: #{nth($color,2)};
+					}
+					// background-color: #{nth($color,2)};
+				}
+				.btn-indie {
+					background-color: $main-color;
+					color:#{nth($color,2)};
+				}
+			}
+		}
+		
+		// if modify the widget element
+		&.indie-widget {
+			&.widget-featured {
+				.indie-content {
+					background-color: #{nth($color,2)};
+				}
+				.btn-indie {
+					background-color: $main-color;
+					color:#{nth($color,2)};
+				}
+			}
+			:not(pre) > code[class*="language-"], pre[class*="language-"] { color: #{nth($color,2)}; }
+			code { color: #{nth($color,2)}; }
+		}
+		
+			@if(nth($color,1) == "dark"){
+				color:$light-grey;
+			} @else {
+				color:#{nth($color,2)};
+			}
+			// & { color:#{nth($color,2)};}
+		
+		.btn-indie {
+
+			@include nth($color-list){
+				background-color: nth($color,2);
+				&:hover { background-color: darken(nth($color,2), 2); }
+			}
+			
+			.widget-featured &, &.inverse {
+				@include nth($color-list){
+					color:#{nth($color,2)};
+					background-color: $main-color;
+				}
+				&:hover { background-color: darken($main-color, 2); }
+			}
+		} // .btn-indie
+
+
+		.indie-navigation {
+			a { color:#{nth($color,2)}; }
+			& > li:hover > a,
+			& > li.active > a, 
+			& > li.active > a:hover, 
+			& > li.active > a:focus {
+				color:#{nth($color,2)};
+				border:2px solid #{nth($color,2)};
+			}
+			& > li > a:focus {
+				color:#{nth($color,2)};
+			}
+		} // .indie-navigation
+
+		
+		.section {
+
+			&[class*="section-"] { 
+				background-color: #{nth($color,2)};
+				color:$main-color;
+				.indie-widget {
+					border-color:$main-color;
+				}
+				.indie-header {
+					border-bottom-color:currentColor;
+				}
+				.indie-title:after {
+					background-color: currentColor;
+				}
+				.indie-header-img {
+					background-color: #{nth($color,2)};
+				}
+				.indie-svg {
+					color:$main-color;
+				}
+				.btn-indie {
+					background-color: $main-color;
+					color:#{nth($color,2)};
+				}
+				.widget-featured {
+					.indie-content {
+						color: #{nth($color,2)};
+					}
+					.btn-indie {
+						background-color: #{nth($color,2)};
+						color:$main-color;
+					}
+				}
+
+				:not(pre) > code[class*="language-"], pre[class*="language-"] { color: #{nth($color,2)}; }
+				code { color: #{nth($color,2)}; }
+
+			}
+			
+			&:not([class*="section-"]) {
+				.widget-featured {
+					.indie-content {
+						background-color: #{nth($color,2)};
+					}
+					.btn-indie {
+						background-color: $main-color;
+						color:#{nth($color,2)};
+					}
+				}
+			}
+
+		}
+
+		
+		.indie-venue {
+			.indie-bg { background-color: nth($color,2); }
+		}
+
+
+		blockquote {
+			footer {
+				color:#{nth($color,2)};
+				&::before {
+					background-color: #{nth($color,2)};
+				}
+			}
+		}
+
+
+		.separator {
+			&.card {
+				// color:#{nth($color,2)};
+				@if(nth($color,1) == "dark"){
+					color:$light-grey;
+				} @else {
+					color:#{nth($color,2)};
+				}
+				border:2px solid;
+			}	
+		}
+		
+		.indie-header {
+			border-bottom: 2px solid #{nth($color,2)};
+		}
+
+		.indie-widget {
+			border:2px solid; // #{nth($color,2)};
+		}
+
+
+		.indie-controls {
+			button {
+				border-left-color:#{nth($color,2)};
+			}
+			path {
+				stroke:#{nth($color,2)};
+			}
+		}
+		
+
+		.indie-title {
+			&::after {
+				background-color: #{nth($color,2)};
+			}
+		}
+
+
+		.indie-event-img {
+			background-color: #{nth($color,2)};
+		}
+
+
+		.indie-featured-img {
+			background-color: #{nth($color,2)};
+		}
+
+
+		.indie-featured {
+			&:not(:nth-of-type(3n))::after {
+				background-color: #{nth($color,2)};
+			}
+			h4 { 
+				color:#{nth($color,2)};
+			}
+
+			&.hoverable:hover { 
+				h4, p { color:alt-color(nth($color,2)); }
+				.btn-rounded { background-color: alt-color(nth($color,2)); }
+			}
+		}
+		.indie-txt-cont::after, .indie-h::after { background-color: nth($color,2);	} // Specific for :after with currentColor in Safari
+		
+		
+		.btn-rounded {
+			background-color: #{nth($color,2)};
+		}
+		
+
+		.indie-label {
+			
+			@if(nth($color,1) == "dark"){
+				color:$light-grey;
+			}
+			&.inverse {
+				background-color: #{nth($color,2)};
+				// color:$main-color;
+				@if(nth($color,1) == "dark"){
+					background-color:$light-grey;
+					color:$main-color;
+				}
+			}
+
+			&.alt-color {
+				border:none;
+				color:$main-color;
+				background-color: alt-color(nth($color,2));
+			}
+		}
+
+		
+		.indie-svg {
+			// color:#{nth($color,2)};
+			@if(nth($color,1) == "dark"){
+				color:$light-grey;
+			} @else {
+				color:#{nth($color,2)};
+			}
+		}
+
+
+		.lines {
+			background-color: #{nth($color,2)};
+			&::after, &::before { background-color: #{nth($color,2)}; }
+		}
+
+		.highlighted { 
+			// background-color: #{nth($color,2)}; 
+			@if(nth($color,1) == "dark"){
+				background-color:$light-grey;
+			} @else {
+				background-color:#{nth($color,2)};
+			}
+			&.alt-color {
+				background-color: alt-color(nth($color,2));
+				color: $main-color!important;
+			}
+		}
+
+		.indie-combo { border-color:alt-color(nth($color,2)); }
+		.indie-tag { 	background-color:alt-color(nth($color,2)); }
+		
+
+	}
+
+}
+
+
+
+
+
+/*
+**
+**  Generic components Colors
+**
+*/
+
+@include coloring($colors, 'color-', false) { 
+	color: $color;
+	&.indie-h:after { background-color: $color!important; }
+}
+
+.highlighted {
+	@include coloring($colors, 'alt-color-', true) {
+		background-color: alt-color($color);
+		color: $main-color!important;
+	}
+}
+
+.indie-label {
+	&.inverse {
+		@include coloring($colors, 'color-', true) { 
+			background-color: $color;
+		}
+	}
+	@include coloring($colors, 'alt-color-', true) {
+		border:none;
+		background-color: alt-color($color);
+		color: $main-color!important;
+	}
+}
+
+.btn-indie {
+	@include coloring($colors, 'btn-', false) { 
+		background-color: $color;
+		color:$main-color;
+		&:hover { background-color: darken($color, 2); }
+		.widget-featured &, &.inverse {
+			background-color: $main-color;
+			color:$color;
+			border:2px solid;
+			&:hover { background-color: darken($main-color, 2) }
+		}
+	}
+}

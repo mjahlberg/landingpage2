@@ -1,0 +1,32 @@
+$main-color: #2a333c;
+$red:#c05b5b;
+$green:#3D969A;
+$light-grey:#b7b7b7;
+$white:white;
+$colors: 
+	"red" $red,
+	"green" $green,
+	"white" $white,
+	"light-grey" $light-grey,
+
+	"portage" #74aae8,
+	"apricot" #ee8675,
+	"trendypink" #8d5a97,
+	"turquoiseblue" #59eecc,
+	"montecarlo" #7dcac2,
+	"chenin" #e1cd76,
+	"mediumpurple" #6e71df,
+	
+	"dark" $main-color;
+
+$light-red:alt-color($red);
+$light-green:alt-color($green);
+$slideResp: true;
+
+$color-list:();
+
+@for $i from 1 through length($colors) {
+  $color-list: append($color-list, '.btn-' + nth(nth($colors,$i),1) );
+}
+
+

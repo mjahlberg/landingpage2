@@ -1,0 +1,30 @@
+/*
+	
+
+	 ____  ____  _  _  ____  ____  ____  _  _ 
+	(  _ \(_  _)( \/ )( ___)(  _ \( ___)( \( )
+	)___/ _)(_  )  (  )__)  )(_) ))__)  )  ( 
+	(__)  (____)(_/\_)(____)(____/(____)(_)\_)
+
+	Indie HTML5 landing page template.
+
+
+*/
+
+// uncomment this with caution, because overrides some bootstrap styles.
+// @import "partials/resets"; 
+
+@import "partials/typography";
+@import "partials/base";
+@import "partials/layout";
+@import "partials/modules";
+/***************************
+**  START to-edit: colors **
+****************************/
+@import "partials/indie-colors";
+/*************************
+**  END to-edit: colors **
+**************************/
+@import "partials/grids";
+@import "partials/overrides";
+@import "partials/responsive";
